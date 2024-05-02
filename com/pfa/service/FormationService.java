@@ -9,4 +9,5 @@ public interface FormationService {
     Formation createFormation(Formation formation);
     Formation updateFormation(Long id, Formation formation);
     void deleteFormation(Long id);
+    List<Formation> getFutureFormations();
 }

@@ -2,7 +2,7 @@ package com.pfa.model;
 
 public enum Status {
     PLANNED,
-    ONGOING,
+    IN_PROGRESS,
     COMPLETED,
     CANCELLED
 }

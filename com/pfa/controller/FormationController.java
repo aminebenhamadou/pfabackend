@@ -26,6 +26,11 @@ public class FormationController {
         List<Formation> formations = formationService.getAllFormations();
         return ResponseEntity.ok(formations);
     }
+    @GetMapping("/future")
+    public ResponseEntity<List<Formation>> getFutureFormations() {
+        List<Formation> formations = formationService.getFutureFormations();
+        return ResponseEntity.ok(formations);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Formation> getFormationById(@PathVariable Long id) {

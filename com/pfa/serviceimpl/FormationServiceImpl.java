@@ -1,7 +1,10 @@
 package com.pfa.serviceimpl;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -66,5 +69,13 @@ public class FormationServiceImpl implements FormationService {
     @Override
     public void deleteFormation(Long id) {
         formationRepository.deleteById(id);
+    }
+    
+    @Override
+    public List<Formation> getFutureFormations() {
+        LocalDate today = LocalDate.now();
+        return formationRepository.findAll().stream()
+                .filter(formation -> formation.getStartDate().isAfter(today) || formation.getStartDate().isEqual(today))
+                .collect(Collectors.toList());
     }
 }
